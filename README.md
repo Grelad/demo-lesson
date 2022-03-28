@@ -1,1 +1,1 @@
-Demo lesson of the decorators
+# demo-lesson
