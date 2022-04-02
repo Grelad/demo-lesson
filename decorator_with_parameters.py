@@ -35,7 +35,7 @@ def add_chapter_with_embellishing_the_story(chapter: int):
 
 
 @add_chapter_with_embellishing_the_story(1)
-def story_telling(story: int):
+def story_telling(story: str):
     return story
 
 

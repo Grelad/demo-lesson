@@ -1,7 +1,5 @@
 """Simple decorator module"""
 
-# Добавить вызов декоратора без синтаксического сахара
-
 
 # Example #1
 from functools import wraps
@@ -20,7 +18,7 @@ def embellish_the_story(func):
         """wrapper function"""
         print(
             "Once upon a time...",
-            func(),
+            func(*args),
             "The End.",
             sep="\n"
         )
@@ -28,11 +26,11 @@ def embellish_the_story(func):
 
 
 @embellish_the_story
-def story_telling():
-    return "Very very short story."
+def story_telling(story: str):
+    return story
 
 
-story_telling()
+story_telling("Very very short story.")
 print("-------------")
 
 
@@ -49,7 +47,7 @@ def embellish_the_beginning(func):
     def wrapper(*args, **kwargs):
         """wrapper function"""
         print(f"Once upon a time...")
-        func()
+        func(*args)
     return wrapper
 
 
@@ -64,20 +62,21 @@ def embellish_the_end(func):
     """
     def wrapper(*args, **kwargs):
         """wrapper function"""
-        func()
+        func(*args, **kwargs)
         print(f"The End.")
     return wrapper
 
 
 @embellish_the_beginning
 @embellish_the_end
-def another_story():
-    print("Very very short story.")
+def another_story(story: str):
+    print(story)
 
 
-another_story()
+another_story("Very very short story.")
 
 
+# Example of the cached decorator without arguments
 def cached(func):
     cache = {}
 
@@ -101,6 +100,6 @@ def calc(a, b):
     return a + b
 
 
-calc(1, 5)  # calculated 6
-calc(1, 5)  # cached 6
-calc(1, 5)  # cached 6
+# calc(1, 5)  # calculated 6
+# calc(1, 5)  # cached 6
+# calc(1, 5)  # cached 6
