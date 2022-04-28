@@ -1,1 +1,1 @@
-Demo lesson of the decorators
+Demo lesson for the Beetroot adacemy
